@@ -1,4 +1,4 @@
-import { client } from '@/sanity/lib/client';
+import { sanityFetch, SanityLive } from '@/sanity/lib/live';
 import { STARTUP_QUERY } from '@/sanity/lib/queries';
 
 import SearchForm from '@/components/SearchForm';
@@ -11,7 +11,7 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
 
-  const posts = await client.fetch(STARTUP_QUERY);
+  const { data: posts } = await sanityFetch({ query: STARTUP_QUERY });
 
   return (
     <>
@@ -43,6 +43,8 @@ export default async function Home({
           )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }
