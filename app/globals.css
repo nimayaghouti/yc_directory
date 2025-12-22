@@ -270,7 +270,7 @@
 }
 
 @utility divider {
-  border-style: dotted;
+  border-style: revert;
   background-color: rgb(161 161 170);
   max-width: 56rem;
   margin: 2.5rem auto;
