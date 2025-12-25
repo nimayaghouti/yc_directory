@@ -13,6 +13,29 @@
  */
 
 // Source: schema.json
+export type Playlist = {
+  _id: string;
+  _type: 'playlist';
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  select?: Array<{
+    _ref: string;
+    _type: 'reference';
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: 'startup';
+  }>;
+};
+
+export type Slug = {
+  _type: 'slug';
+  current?: string;
+  source?: string;
+};
+
 export type Startup = {
   _id: string;
   _type: 'startup';
@@ -35,12 +58,6 @@ export type Startup = {
 };
 
 export type Markdown = string;
-
-export type Slug = {
-  _type: 'slug';
-  current?: string;
-  source?: string;
-};
 
 export type Author = {
   _id: string;
@@ -169,9 +186,10 @@ export type Geopoint = {
 };
 
 export type AllSanitySchemaTypes =
+  | Playlist
+  | Slug
   | Startup
   | Markdown
-  | Slug
   | Author
   | SanityImagePaletteSwatch
   | SanityImagePalette
