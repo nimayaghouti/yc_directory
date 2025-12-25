@@ -3,7 +3,7 @@ import GitHub from 'next-auth/providers/github';
 
 import { client } from '@/sanity/lib/client';
 import { AUTHOR_BY_GITHUB_ID_QUERY } from '@/sanity/lib/queries';
-import { writeClient } from './sanity/lib/write-client';
+import { writeClient } from '@/sanity/lib/write-client';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [GitHub],
